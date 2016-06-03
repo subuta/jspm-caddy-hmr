@@ -1,0 +1,17 @@
+localhost:3000
+
+gzip
+browse
+ext .html
+log / stdout "{method} {uri} {latency}"
+
+rewrite {
+  regexp (^/$)
+  to /index.html?{query}
+}
+
+# otherwise prepend public to request
+rewrite {
+  regexp (.*)
+  to /public{path} {path}
+}
