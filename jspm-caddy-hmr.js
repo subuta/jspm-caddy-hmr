@@ -44,7 +44,7 @@ if (program.exclude) {
 }
 
 // path to watch
-var target = program.args[0] ? path.resolve(__dirname, program.args[0]) : __dirname;
+var target = program.args[0] ? path.resolve(process.cwd(), program.args[0]) : process.cwd();
 
 // if verbose not specified supress log.
 if (!program.verbose) {
@@ -59,15 +59,15 @@ var watcher = sane(target, {
 });
 
 watcher.on('ready', function () {
-  console.log(`[jspm-watch:server] ready ${watchman ? 'with watchman' : ''}`)
+  console.log(`[jspm-caddy-hmr:server] ready ${watchman ? 'with watchman' : ''}`)
 });
 
 watcher.on('add', function (filepath, root, stat) {
-  console.log('[jspm-watch:server] file added', filepath);
+  console.log('[jspm-caddy-hmr:server] file added', filepath);
 });
 
 watcher.on('delete', function (filepath, root) {
-  console.log('[jspm-watch:server] file deleted', filepath);
+  console.log('[jspm-caddy-hmr:server] file deleted', filepath);
 });
 
 watcher.on('change', function (filepath, root, stat) {
@@ -76,7 +76,7 @@ watcher.on('change', function (filepath, root, stat) {
   });
 
   if (isNotBlackListed) {
-    console.log('[jspm-watch:server] file changed', filepath);
+    console.log('[jspm-caddy-hmr:server] file changed', filepath);
     // explicit write to stdout.
     process.stdout.write('data: ' + filepath + '\n');
   }
