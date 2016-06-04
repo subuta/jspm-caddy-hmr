@@ -1,7 +1,7 @@
 {
   "name": "jspm-caddy-hmr",
   "description": "jspm & caddy => HMR :)",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "registry": "npm",
   "dependencies": {
     "lodash": "^4.13.1",
@@ -11,6 +11,8 @@
   "jspmPackage": true,
   "files": [
     "jspm-caddy-hmr.js",
+    "package.json",
+    "README.md",
     "dist"
   ],
   "browser": "dist/jspm-caddy-client.js",
@@ -37,7 +39,7 @@
     "hmr",
     "module"
   ],
-  "scripts": {
+  "`": {
     "bundle": "jspm bundle example/app.js -wid",
     "unbundle": "jspm unbundle example/app.js",
     "serve": "caddy",
