@@ -1,8 +1,11 @@
 ## jspm-caddy-watch
+using this module, you will get.
+- HMR with jspm bundle support(added from jspm v1.7~)
+- No need to launch another file watcher(chokidar zombie process ...)
 
 ### Prerequisite
 - Caddy
-- jspm
+- jspm@beta
 
 ### how to install
 ```
@@ -47,4 +50,10 @@ websocket /watch "node watchServer.js"
 </script>
 </body>
 </html>
+```
+
+### run example
+```
+npm run bundle
+npm run serve
 ```
