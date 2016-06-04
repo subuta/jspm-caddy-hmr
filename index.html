@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="jspm_packages/system.js"></script>
     <script src="jspm.config.js"></script>
-    <title>tame.com</title>
+    <title>jspm-watch</title>
 </head>
 <body>
-<h1>hello jspm-caddy!</h1>
+<h1>hello jspm-watch!</h1>
 <script>
     if (location.origin.match(/localhost/)) {
         System.trace = true;
-        System.import('jspm-watch/client.js').then(function(Watcher){
+        System.import('dist/jspm-watch-client.js').then(function(Watcher){
           new Watcher.default('/watch');
         });
     }

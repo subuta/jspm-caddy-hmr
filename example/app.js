@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 // js example.
 import example from 'example/nested/example.js';
 // css example.

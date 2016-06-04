@@ -2,7 +2,9 @@
   "scripts": {
     "bundle": "jspm bundle example/app.js -wid",
     "unbundle": "jspm unbundle example/app.js",
-    "serve": "caddy"
+    "serve": "caddy",
+    "build-dev": "jspm build lib/jspm-watch-client.js dist/jspm-watch-client.js --format umd --global-name jspmWatch",
+    "build": "jspm build lib/jspm-watch-client.js dist/jspm-watch-client.js --format umd --global-name jspmWatch --skip-source-maps --minify"
   },
   "jspm": {
     "name": "jspm-caddy-watchman",
@@ -10,7 +12,7 @@
     "configFile": "jspm.config.js",
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.22",
-      "lodash": "npm:lodash@^4.13.1"
+      "lodash-es": "npm:lodash-es@^4.13.1"
     },
     "devDependencies": {
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.11"
