@@ -56,7 +56,7 @@
     }
   },
   "devDependencies": {
-    "death": "^1.0.0",
+    "commander": "^2.9.0",
     "jspm": "^0.17.0-beta.17",
     "lodash": "^4.13.1",
     "sane": "^1.3.4"

@@ -2,7 +2,7 @@ SystemJS.config({
   paths: {
     "npm:": "jspm_packages/npm/",
     "github:": "jspm_packages/github/",
-    "jspm-caddy-watchman/": "lib/"
+    "jspm-watch/": "lib/"
   },
   browserConfig: {
     "baseURL": "/",
@@ -24,8 +24,8 @@ SystemJS.config({
   },
   transpiler: "plugin-babel",
   packages: {
-    "jspm-caddy-watchman": {
-      "main": "src/app.js",
+    "jspm-watch": {
+      "main": "jspm-watch",
       "meta": {
         "*.js": {
           "loader": "plugin-babel"

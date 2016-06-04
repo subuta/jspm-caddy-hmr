@@ -1,18 +1,17 @@
-## jspm-caddy-watch
+## jspm-watch
 using this module, you will get.
 - HMR with jspm bundle support(added from jspm v1.7~)
-- No need to launch another file watcher(chokidar zombie process ...)
+- Easy to use (No need to launch another file watcher process)
+- Easy to understand (Dead simple structure)
 
 ### Prerequisite
 - Caddy
 - jspm@beta
 
-### how to install
 ```
-npm install jspm@beta -g
 brew install caddy
-NODE_ENV=development npm i
-jspm i
+npm install jspm@beta -g
+npm install jspm-watch --save-dev
 ```
 
 ### how to use
@@ -25,7 +24,7 @@ gzip
 browse
 ext .html
 
-websocket /watch "node watchServer.js"
+websocket /watch "node jspm-watch"
 ```
 
 2 add watcher-client to your index.html(or js)
@@ -35,14 +34,14 @@ websocket /watch "node watchServer.js"
 <head>
     <script src="jspm_packages/system.js"></script>
     <script src="jspm.config.js"></script>
-    <title>jspm-caddy-watchman</title>
+    <title>jspm-watch</title>
 </head>
 <body>
 <h1>hello jspm-caddy!</h1>
 <script>
     if (location.origin.match(/localhost/)) {
         System.trace = true;
-        System.import('jspm-caddy-watchman/watcher.js').then(function(Watcher){
+        System.import('jspm-watch/watcher.js').then(function(Watcher){
           new Watcher.default('/watch');
         });
     }
@@ -52,8 +51,32 @@ websocket /watch "node watchServer.js"
 </html>
 ```
 
+if you want to keep file-watcher process separated,
+you can use websocketd instead like below.
+
+```
+websocketd --port=8080 jspm-watch
+
+and specify watcher port explicitly.
+
+new Watcher.default('/', 8080);
+```
+
+---
+
+### how to develop
+```
+npm install jspm@beta -g
+brew install caddy
+NODE_ENV=development npm i
+jspm i
+```
+
 ### run example
 ```
 npm run bundle
 npm run serve
 ```
+
+### LICENSE
+[MIT](https://opensource.org/licenses/MIT)

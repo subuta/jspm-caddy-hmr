@@ -6,7 +6,7 @@ ext .html
 log / stdout "{method} {uri} {latency}"
 errors stderr
 
-websocket /watch "node watchServer.js"
+websocket /watch "node jspm-watch"
 
 rewrite {
   regexp (^/$)
