@@ -1,7 +1,7 @@
 {
   "name": "jspm-caddy-hmr",
   "description": "jspm & caddy => HMR :)",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "registry": "npm",
   "dependencies": {
     "lodash": "^4.13.1",
@@ -18,8 +18,8 @@
   "browser": "dist/jspm-caddy-client.js",
   "main": "jspm-caddy-hmr.js",
   "bin": "jspm-caddy-hmr.js",
-  "format": "umd",
-  "license" : "MIT",
+  "format": "amd",
+  "license": "MIT",
   "homepage": "https://github.com/subuta/jspm-caddy-hmr",
   "author": "subuta <shunta.3110@gmail.com> (https://github.com/subuta)",
   "bugs": {
@@ -52,10 +52,11 @@
     "configFile": "jspm.config.js",
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.22",
-      "lodash-es": "npm:lodash-es@^4.13.1"
+      "jspm-caddy-hmr": "0.1.7",
+      "lodash-es": "^4.13.1"
     },
     "devDependencies": {
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.11"
+      "plugin-babel": "systemjs-plugin-babel@^0.0.11"
     },
     "peerDependencies": {
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",

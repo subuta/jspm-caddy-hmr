@@ -50,6 +50,7 @@ SystemJS.config({
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
+    "jspm-caddy-hmr": "npm:jspm-caddy-hmr@0.1.7",
     "lodash-es": "npm:lodash-es@4.13.1",
     "net": "github:jspm/nodelibs-net@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
@@ -294,6 +295,13 @@ SystemJS.config({
     "github:jspm/nodelibs-string_decoder@0.2.0-alpha": {
       "map": {
         "string_decoder-browserify": "npm:string_decoder@0.10.31"
+      }
+    },
+    "npm:jspm-caddy-hmr@0.1.7": {
+      "map": {
+        "css": "github:systemjs/plugin-css@0.1.22",
+        "lodash-es": "npm:lodash-es@4.13.1",
+        "jspm-caddy-hmr": "npm:jspm-caddy-hmr@0.1.7"
       }
     }
   }
