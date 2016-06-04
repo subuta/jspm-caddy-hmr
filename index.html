@@ -7,15 +7,15 @@
     <title>tame.com</title>
 </head>
 <body>
-<h1>hoge!</h1>
+<h1>hello jspm-caddy!</h1>
 <script>
-//    if (location.origin.match(/localhost/)) {
-//        System.trace = true;
-//        System.import('systemjs-hot-reloader').then(function(HotReloader){
-//            new HotReloader.default('http://localhost:5778');  // chokidar-socket-emitter port
-//        });
-//    }
-    System.import('jspm-caddy-watchman.js');
+    if (location.origin.match(/localhost/)) {
+        System.trace = true;
+        System.import('jspm-caddy-watchman/watcher.js').then(function(Watcher){
+          new Watcher.default('/watch');
+        });
+    }
+    System.import('example/app.js');
 </script>
 </body>
 </html>

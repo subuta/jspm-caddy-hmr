@@ -4,14 +4,11 @@ gzip
 browse
 ext .html
 log / stdout "{method} {uri} {latency}"
+errors stderr
+
+websocket /watch "node watchServer.js"
 
 rewrite {
   regexp (^/$)
   to /index.html?{query}
-}
-
-# otherwise prepend public to request
-rewrite {
-  regexp (.*)
-  to /public{path} {path}
 }
