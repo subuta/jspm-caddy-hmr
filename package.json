@@ -39,7 +39,7 @@
     "hmr",
     "module"
   ],
-  "`": {
+  "scripts": {
     "bundle": "jspm bundle example/app.js -wid",
     "unbundle": "jspm unbundle example/app.js",
     "serve": "caddy",
