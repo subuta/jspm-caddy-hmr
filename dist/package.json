@@ -1,6 +1,6 @@
 {
-  "name": "jspm-watch",
-  "version": "0.1",
+  "name": "jspm-caddy-hmr",
+  "version": "0.1.1",
   "registry": "npm",
   "peerDependencies": {
     "commander": "^2.9.0",
@@ -9,7 +9,7 @@
     "sane": "^1.3.4"
   },
   "jspmPackage": true,
-  "browser": "jspm-watch-client.js",
-  "main": "../jspm-watch",
+  "browser": "jspm-caddy-client.js",
+  "main": "../jspm-caddy-hmr",
   "format": "umd"
 }

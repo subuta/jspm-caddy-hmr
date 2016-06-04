@@ -2,7 +2,7 @@ SystemJS.config({
   paths: {
     "npm:": "jspm_packages/npm/",
     "github:": "jspm_packages/github/",
-    "jspm-watch/": "lib/"
+    "jspm-caddy-client/": "lib/"
   },
   browserConfig: {
     "baseURL": "/",

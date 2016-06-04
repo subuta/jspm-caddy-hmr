@@ -3,12 +3,12 @@
     "bundle": "jspm bundle example/app.js -wid",
     "unbundle": "jspm unbundle example/app.js",
     "serve": "caddy",
-    "build-dev": "jspm build lib/jspm-watch-client.js dist/jspm-watch-client.js --format umd --global-name jspmWatch",
-    "build": "jspm build lib/jspm-watch-client.js dist/jspm-watch-client.js --format umd --global-name jspmWatch --skip-source-maps --minify"
+    "build-dev": "jspm build lib/jspm-caddy-client.js dist/jspm-caddy-client.js --format umd --global-name jspmCaddy",
+    "build": "jspm build lib/jspm-caddy-client.js dist/jspm-caddy-client.js --format umd --global-name jspmCaddy --skip-source-maps --minify"
   },
   "jspm": {
-    "name": "jspm-caddy-watchman",
-    "main": "jspm-caddy-watchman.js",
+    "name": "jspm-caddy-hmr",
+    "main": "dist/jspm-caddy-client.js",
     "configFile": "jspm.config.js",
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.22",
