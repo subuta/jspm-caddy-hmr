@@ -1,4 +1,4 @@
-## jspm-watch
+## jspm-caddy-hmr
 using this module, you will get.
 - HMR with jspm bundle support(added from jspm v1.7~)
 - Easy to use (No need to launch another file watcher process)
