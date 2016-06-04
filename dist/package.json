@@ -1,21 +1,17 @@
 {
   "name": "jspm-caddy-hmr",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "registry": "npm",
   "peerDependencies": {
-    "css": "github:systemjs/plugin-css@^0.1.22",
-    "lodash-es": "npm:lodash-es@^4.13.1"
+    "lodash": "^4.13.1",
+    "commander": "^2.9.0",
+    "sane": "^1.3.4"
   },
   "jspmPackage": true,
   "browser": "jspm-caddy-client.js",
   "main": "./jspm-caddy-hmr.js",
   "bin": "./jspm-caddy-hmr.js",
   "format": "umd",
-  "dependencies": {
-    "lodash": "^4.13.1",
-    "commander": "^2.9.0",
-    "sane": "^1.3.4"
-  },
   "license" : "MIT",
   "homepage": "https://github.com/subuta/jspm-watch/",
   "author": "subuta <shunta.3110@gmail.com> (https://github.com/subuta)",
