@@ -1,8 +1,9 @@
 {
   "name": "jspm-caddy-hmr",
-  "version": "0.1.2",
+  "description": "jspm & caddy => HMR :)",
+  "version": "0.1.5",
   "registry": "npm",
-  "peerDependencies": {
+  "dependencies": {
     "lodash": "^4.13.1",
     "commander": "^2.9.0",
     "sane": "^1.3.4"
@@ -17,5 +18,19 @@
   "author": "subuta <shunta.3110@gmail.com> (https://github.com/subuta)",
   "bugs": {
     "url": "https://github.com/subuta/jspm-watch/issues"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subuta/jspm-watch.git"
+  },
+  "keywords": [
+    "fs",
+    "watch",
+    "watchFile",
+    "watcher",
+    "jspm",
+    "file",
+    "caddy",
+    "hmr"
+  ]
 }
