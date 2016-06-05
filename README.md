@@ -1,8 +1,13 @@
-## jspm-caddy-hmr
+## jspm-caddy-hmr(WIP)
 using this module, you will get.
 - HMR with jspm bundle support(added from jspm v1.7~)
 - Easy to use (No need to launch another file watcher process)
 - Easy to understand (Dead simple structure)
+
+### TODO
+[ ] - reload on add/delete file
+[ ] - reload/unload lifecycle
+[ ] - add Tests
 
 ### Prerequisite
 - Caddy
@@ -38,10 +43,10 @@ ebsocket /watch "node ./node_modules/.bin/jspm-caddy-hmr"
 <head>
     <script src="jspm_packages/system.js"></script>
     <script src="jspm.config.js"></script>
-    <title>jspm-watch</title>
+    <title>jspm-caddy-hmr</title>
 </head>
 <body>
-<h1>hello jspm-caddy!</h1>
+<h1>hello jspm-caddy-hmr!</h1>
 <script>
     if (location.origin.match(/localhost/)) {
         System.trace = true;
