@@ -11,11 +11,15 @@ using this module, you will get.
 ```
 brew install caddy
 npm install jspm@beta -g
-npm install jspm-watch --save-dev
 ```
 
 ### how to use
-1 add watcher-server to your Caddyfile
+1 install jspm-caddy-hmr as a local node_module
+```
+npm install jspm-caddy-hmr --save-dev
+```
+
+2 add jspm-caddy-hmr(server) to your Caddyfile
 
 ```
 localhost:3000
@@ -24,10 +28,10 @@ gzip
 browse
 ext .html
 
-websocket /watch "node jspm-watch"
+ebsocket /watch "node ./node_modules/.bin/jspm-caddy-hmr"
 ```
 
-2 add watcher-client to your index.html(or js)
+3 add jspm-caddy-client to your index.html(or in js)
 
 ```
 <html>
@@ -41,7 +45,7 @@ websocket /watch "node jspm-watch"
 <script>
     if (location.origin.match(/localhost/)) {
         System.trace = true;
-        System.import('jspm-watch/watcher.js').then(function(Watcher){
+        System.import('jspm-caddy-hmr').then(function(Watcher){
           new Watcher.default('/watch');
         });
     }
@@ -55,7 +59,7 @@ if you want to keep file-watcher process separated,
 you can use websocketd instead like below.
 
 ```
-websocketd --port=8080 jspm-watch
+websocketd --port=8080 jspm-caddy-hmr
 
 and specify watcher port explicitly.
 
