@@ -1,7 +1,7 @@
 {
   "name": "jspm-caddy-hmr",
   "description": "jspm & caddy => HMR :)",
-  "version": "0.1.12",
+  "version": "0.1.15",
   "registry": "npm",
   "dependencies": {
     "lodash": "^4.13.1",
@@ -13,10 +13,11 @@
     "jspm-caddy-hmr.js",
     "package.json",
     "README.md",
-    "dist"
+    "dist",
+    "lib"
   ],
   "browser": "dist/jspm-caddy-client.js",
-  "main": "jspm-caddy-hmr.js",
+  "main": "dist/jspm-caddy-client.js",
   "bin": {
     "jspm-caddy-hmr": "./jspm-caddy-hmr.js"
   },
@@ -49,8 +50,6 @@
     "build": "jspm build lib/jspm-caddy-client.js dist/jspm-caddy-client.js --format umd --global-name jspmCaddy --skip-source-maps --minify"
   },
   "jspm": {
-    "name": "jspm-caddy-hmr",
-    "main": "lib/jspm-caddy-client.js",
     "configFile": "jspm.config.js",
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.22",
