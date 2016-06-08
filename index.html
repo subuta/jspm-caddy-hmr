@@ -11,7 +11,7 @@
 <script>
     if (location.origin.match(/localhost/)) {
         System.trace = true;
-        System.import('dist/jspm-caddy-client.js').then(function(Watcher){
+        System.import('lib/jspm-caddy-client.js').then(function(Watcher){
           new Watcher.default('/watch');
         });
     }
