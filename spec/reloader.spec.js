@@ -1,4 +1,4 @@
-import reload, {reImport} from 'lib/reloader.js';
+import reload, {normalizeSync} from 'lib/reloader.js';
 import _ from 'lodash';
 
 describe('reload', function(){
@@ -68,7 +68,7 @@ describe('reload', function(){
     });
   });
 
-  it('should call unload/reload callback by correct order on reload', function(done){
+  it('should call unload/reload hook by correct order on reload', function(done){
     const onReload = sinon.spy();
     const onUnload = sinon.spy();
 
@@ -94,6 +94,26 @@ describe('reload', function(){
         System.import.restore();
         done();
       });
+    });
+  });
+});
+
+describe('normalizeSync', function() {
+  beforeEach(function (done) {
+    // load app.js everytime.
+    System.import('example/app.js').then(() => {
+      done();
+    });
+  });
+
+  it('should return same result with System.normalize', function(done){
+    // maybe original normalizeSync is not return correct path.
+    assert(System.normalizeSync('example/nested/sample.css!') !== normalizeSync('example/nested/sample.css!'));
+    
+    System.normalize('example/nested/sample.css!').then(normalized => {
+      // so we need to use original one.
+      assert(normalized === normalizeSync('example/nested/sample.css!'));
+      done();
     });
   });
 });
