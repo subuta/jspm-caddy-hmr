@@ -1,9 +1,9 @@
 // js example.
-import example from 'example/nested/example.js';
+import nested from 'example/nested/index.js';
 // css example.
-import 'example/nested/sample.css!';
+import 'example/sample.css!';
 
 console.log('app loaded!');
 
-// call js.
-example();
+// call nested module.
+console.log('nested() = ', nested());

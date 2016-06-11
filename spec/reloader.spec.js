@@ -1,4 +1,10 @@
-import reload, {normalizeSync} from 'lib/reloader.js';
+import reload, {
+  normalizeSync,
+  getDependencies,
+  getDependencyTree,
+  getScriptName
+} from 'lib/reloader.js';
+
 import _ from 'lodash';
 
 describe('reload', function(){
@@ -25,7 +31,7 @@ describe('reload', function(){
   });
 
   it('should remove old dom on reload css file', function(done){
-    const path = 'example/nested/sample.css!';
+    const path = 'example/sample.css!';
     const linkTo = _.trim(path, '!');
     let styleNodes = document.querySelectorAll(`link[href*="${linkTo}"]`);
     assert(styleNodes.length > 0);
@@ -77,16 +83,16 @@ describe('reload', function(){
       _unload: onUnload,
       default: () => true
     });
-    System.set('dummy-module', dummyModule);
+    System.set('dummy-module.js', dummyModule);
 
     const mockedImport = () => {
       return Promise.resolve(dummyModule);
     };
 
-    System.import('dummy-module').then((module) => {
+    System.import('dummy-module.js').then((module) => {
       assert(module.default() === true);
       sinon.stub(System, 'import', mockedImport);
-      reload('dummy-module').then((module) => {
+      reload('dummy-module.js').then((module) => {
         assert.isOk(module._unload.called === true);
         assert.isOk(module._reload.called === true);
         // call unload first and then reload.
@@ -95,6 +101,12 @@ describe('reload', function(){
         done();
       });
     });
+  });
+
+  it('should get dependencies', function() {
+    const normalized = normalizeSync('example/app.js');
+    const module = System.loads[normalized];
+    console.log(module.deps);
   });
 });
 
@@ -108,12 +120,73 @@ describe('normalizeSync', function() {
 
   it('should return same result with System.normalize', function(done){
     // maybe original normalizeSync is not return correct path.
-    assert(System.normalizeSync('example/nested/sample.css!') !== normalizeSync('example/nested/sample.css!'));
-    
-    System.normalize('example/nested/sample.css!').then(normalized => {
+    assert(System.normalizeSync('example/sample.css!') !== normalizeSync('example/sample.css!'));
+
+    System.normalize('example/sample.css!').then(normalized => {
       // so we need to use original one.
-      assert(normalized === normalizeSync('example/nested/sample.css!'));
+      assert.deepEqual(normalized, normalizeSync('example/sample.css!'));
       done();
     });
   });
+
+  it('should parse relative path correctly', function(done){
+    System.normalize('./example/app.js').then(normalized => {
+      assert.deepEqual(normalized, normalizeSync('./example/app.js'));
+      done();
+    });
+  });
+
+  it('should parse nested relative path correctly', function(done){
+    System.normalize('../example/app.js').then(normalized => {
+      assert.deepEqual(normalized, normalizeSync('../example/app.js'));
+      done();
+    });
+  });
+
+  it('should parse deep nested relative path correctly', function(done){
+    System.normalize('deepNested/index.js').then(normalized => {
+      assert.deepEqual(normalized, normalizeSync('deepNested/index.js'));
+      done();
+    });
+  });
+});
+
+describe('getDependencies', function() {
+  beforeEach(function (done) {
+    // load app.js everytime.
+    System.import('example/app.js').then(() => {
+      done();
+    });
+  });
+
+  it('should return module dependency', function(){
+    // maybe original normalizeSync is not return correct path.
+    assert.deepEqual(getDependencies('example/app.js'), [ 'example/nested/index.js', 'example/sample.css!' ]);
+  });
+
+  it('should return empty array with not found module', function(){
+    // maybe original normalizeSync is not return correct path.
+    assert.deepEqual(getDependencies('example/not-exists.js'), []);
+  });
+});
+
+describe('getDependencyTree', function() {
+  beforeEach(function (done) {
+    // load app.js everytime.
+    System.import('example/app.js').then(() => {
+      done();
+    });
+  });
+
+  it('should return module dependency tree', function(){
+    // maybe original normalizeSync is not return correct path.
+    const dependencyTree = getDependencyTree('example/nested/deepNested/index.js');
+    console.log(JSON.stringify(dependencyTree));
+    // assert.deepEqual(dependencyTree, {});
+  });
+
+  // it('should return empty array with not found module', function(){
+  //   // maybe original normalizeSync is not return correct path.
+  //   assert.deepEqual(getDependencies('example/not-exists.js'), []);
+  // });
 });
