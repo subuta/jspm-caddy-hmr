@@ -44,6 +44,8 @@ module.exports = function (wallaby) {
       sinon.assert.expose(chai.assert, { prefix: "" });
       window.assert = chai.assert;
 
+      mocha.timeout(2000);
+
       wallaby.delayStart();
 
       System.config({

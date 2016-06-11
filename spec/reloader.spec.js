@@ -67,4 +67,33 @@ describe('reload', function(){
       });
     });
   });
+
+  it('should call unload/reload callback by correct order on reload', function(done){
+    const onReload = sinon.spy();
+    const onUnload = sinon.spy();
+
+    const dummyModule = System.newModule({
+      _reload: onReload,
+      _unload: onUnload,
+      default: () => true
+    });
+    System.set('dummy-module', dummyModule);
+
+    const mockedImport = () => {
+      return Promise.resolve(dummyModule);
+    };
+
+    System.import('dummy-module').then((module) => {
+      assert(module.default() === true);
+      sinon.stub(System, 'import', mockedImport);
+      reload('dummy-module').then((module) => {
+        assert.isOk(module._unload.called === true);
+        assert.isOk(module._reload.called === true);
+        // call unload first and then reload.
+        assert.callOrder(module._unload, module._reload);
+        System.import.restore();
+        done();
+      });
+    });
+  });
 });
