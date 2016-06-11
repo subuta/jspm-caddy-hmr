@@ -52,19 +52,21 @@
   "jspm": {
     "configFile": "jspm.config.js",
     "dependencies": {
-      "css": "github:systemjs/plugin-css@^0.1.22"
+      "css": "github:systemjs/plugin-css@^0.1.23",
+      "lodash": "^4.13.1"
     },
     "devDependencies": {
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "lodash": "^4.13.1",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "plugin-babel": "systemjs-plugin-babel@^0.0.12",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+    },
+    "peerDependencies": {
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha"
     },
     "overrides": {
       "npm:inherits@2.0.1": {

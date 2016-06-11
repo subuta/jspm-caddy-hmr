@@ -9,21 +9,14 @@ SystemJS.config({
     'map': {
       'plugin-babel': 'npm:systemjs-plugin-babel@0.0.12',
       'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
-      'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
       'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
       'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
       'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
       'events': 'github:jspm/nodelibs-events@0.2.0-alpha',
       'assert': 'github:jspm/nodelibs-assert@0.2.0-alpha',
-      'fs': 'github:jspm/nodelibs-fs@0.2.0-alpha',
-      'lodash': 'npm:lodash@4.13.1'
+      'fs': 'github:jspm/nodelibs-fs@0.2.0-alpha'
     },
     'packages': {
-      'github:jspm/nodelibs-buffer@0.2.0-alpha': {
-        'map': {
-          'buffer-browserify': 'npm:buffer@4.6.0'
-        }
-      },
       'github:jspm/nodelibs-stream@0.2.0-alpha': {
         'map': {
           'stream-browserify': 'npm:stream-browserify@2.0.1'
@@ -33,13 +26,6 @@ SystemJS.config({
         'map': {
           'inherits': 'npm:inherits@2.0.1',
           'readable-stream': 'npm:readable-stream@2.1.4'
-        }
-      },
-      'npm:buffer@4.6.0': {
-        'map': {
-          'ieee754': 'npm:ieee754@1.1.6',
-          'base64-js': 'npm:base64-js@1.1.2',
-          'isarray': 'npm:isarray@1.0.0'
         }
       },
       'npm:readable-stream@2.1.4': {
@@ -75,7 +61,22 @@ SystemJS.config({
     'github:*/*.json'
   ],
   map: {
-    'css': 'github:systemjs/plugin-css@0.1.22'
+    'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
+    'css': 'github:systemjs/plugin-css@0.1.23',
+    'lodash': 'npm:lodash@4.13.1'
   },
-  packages: {}
+  packages: {
+    'github:jspm/nodelibs-buffer@0.2.0-alpha': {
+      'map': {
+        'buffer-browserify': 'npm:buffer@4.6.0'
+      }
+    },
+    'npm:buffer@4.6.0': {
+      'map': {
+        'ieee754': 'npm:ieee754@1.1.6',
+        'base64-js': 'npm:base64-js@1.1.2',
+        'isarray': 'npm:isarray@1.0.0'
+      }
+    }
+  }
 });

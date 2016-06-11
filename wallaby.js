@@ -9,7 +9,10 @@ module.exports = function (wallaby) {
       {pattern: 'node_modules/chai-as-promised/lib/chai-as-promised.js', instrument: false},
 
       // source files (`load: false` as the files will be loaded by system.js loader)
+      {pattern: 'build.js', load: false},
       {pattern: 'example/**/*.js', load: false},
+      {pattern: 'example/**/*.css', load: false},
+      {pattern: 'index.html', load: false},
       {pattern: 'lib/**/*.js', load: false},
     ],
     tests: [
