@@ -1,25 +1,25 @@
 ## jspm-caddy-hmr
-using this module, you will get.
-- HMR with jspm bundle support(added from jspm v1.7~)
-- Easy to start (No need to launch another file watcher process)
-- Easy to use (simple structure)
+jspm向けのHMR実装です。(Caddyと一緒に使います。
+- 高速なHMR(jspmのbundleを検知し、そちらを利用します)
+- 簡単に始められる！(他のプロセスを立てる必要はありません)
+- 使いやすい！(シンプルな構造です)
 
-### Prerequisite
+### 必要なもの
 - Caddy
-- jspm@beta
+- jspm@beta(0.17)
 
 ```
 brew install caddy
 npm install jspm@beta -g
 ```
 
-### how to use
-1 install jspm-caddy-hmr as a local node_module
+### 使い方
+1 jspm-caddy-hmrをローカルの依存性としてインストールします。
 ```
 npm install jspm-caddy-hmr --save-dev
 ```
 
-2 add jspm-caddy-hmr(server) to your Caddyfile
+2 インストールしたjspm-caddy-hmr(サーバ)をCaddyのWebsocket Directiveとして定義します。
 
 ```
 localhost:3000
@@ -31,7 +31,7 @@ ext .html
 websocket /watch "node ./node_modules/.bin/jspm-caddy-hmr"
 ```
 
-3 add jspm-caddy-client to your index.html(or in js)
+3 jspm-caddy-client(クライアント)をブラウザ側で読み込みます。(index.htmlかJS内で)
 
 ```
 <html>
@@ -55,9 +55,9 @@ websocket /watch "node ./node_modules/.bin/jspm-caddy-hmr"
 </html>
 ```
 
-if you want to keep file-watcher process separated,
-you can use websocketd instead like below.
-
+もし何かしらの理由で、File Watcherを別プロセスにしたい場合
+(`Caddy使ってない場合とか`)は、`websocketd`を使うことで代用できます。
+※その場合は、websocketdで指定したポートをクライアント側でも指定してください。
 ```
 websocketd --port=8080 jspm-caddy-hmr
 
@@ -68,7 +68,7 @@ new Watcher.default('/', 8080);
 
 ---
 
-### how to develop
+### 開発方法
 ```
 npm install jspm@beta -g
 brew install caddy
@@ -76,7 +76,7 @@ NODE_ENV=development npm i
 jspm i
 ```
 
-### run example
+### Exampleの起動
 ```
 npm run bundle
 npm run serve

@@ -9,8 +9,10 @@ function list(val) {
   return val.split(',');
 }
 
+const watchDelay = 100;
+
 program
-  .version('0.0.1')
+  .version('0.2.2')
   .usage('[options] <target>')
   .option('-e, --exclude <folders>', 'A list of folders to exclude from watch', list)
   .option('-i, --include <patterns>', 'A list of file-patterns to watch', list)
@@ -34,8 +36,7 @@ if (program.include) {
 var exclude = [
   'jspm_packages',
   'node_modules',
-  'jspm.config.js',
-  'watchServer.js'
+  'jspm-caddy-hmr.js'
 ];
 
 // join exclude.
@@ -58,27 +59,43 @@ var watcher = sane(target, {
   watchman: watchman
 });
 
+const checkIsBlackListed = (filepath) => {
+  return _.every(exclude, path => {
+    return !_.startsWith(filepath, path);
+  });
+};
+
 watcher.on('ready', function () {
   console.log(`[jspm-caddy-hmr:server] ready ${watchman ? 'with watchman' : ''}`)
 });
 
 watcher.on('add', function (filepath, root, stat) {
-  console.log('[jspm-caddy-hmr:server] file added', filepath);
+  if (checkIsBlackListed(filepath)) {
+    console.log('[jspm-caddy-hmr:server] file added', filepath);
+    _.delay(() => {
+      // explicit write to stdout.
+      process.stdout.write('data:added:' + filepath + '\n');
+    }, watchDelay);
+  }
 });
 
 watcher.on('delete', function (filepath, root) {
-  console.log('[jspm-caddy-hmr:server] file deleted', filepath);
+  if (checkIsBlackListed(filepath)) {
+    console.log('[jspm-caddy-hmr:server] file deleted', filepath);
+    _.delay(() => {
+      // explicit write to stdout.
+      process.stdout.write('data:deleted:' + filepath + '\n');
+    }, watchDelay);
+  }
 });
 
 watcher.on('change', function (filepath, root, stat) {
-  const isNotBlackListed = _.every(exclude, path => {
-    return !_.startsWith(filepath, path);
-  });
-
-  if (isNotBlackListed) {
+  if (checkIsBlackListed(filepath)) {
     console.log('[jspm-caddy-hmr:server] file changed', filepath);
-    // explicit write to stdout.
-    process.stdout.write('data: ' + filepath + '\n');
+    _.delay(() => {
+      // explicit write to stdout.
+      process.stdout.write('data:changed:' + filepath + '\n');
+    }, watchDelay);
   }
 });
 

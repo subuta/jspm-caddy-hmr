@@ -1,7 +1,7 @@
 {
   "name": "jspm-caddy-hmr",
   "description": "jspm & caddy => HMR :)",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "registry": "npm",
   "dependencies": {
     "lodash": "^4.13.1",
