@@ -46,28 +46,29 @@
     "bundle": "jspm bundle example/app.js -wid",
     "unbundle": "jspm unbundle example/app.js",
     "serve": "caddy",
-    "build-dev": "jspm build lib/jspm-caddy-client.js dist/jspm-caddy-client.js --format umd --global-name jspmCaddy",
-    "build": "jspm build lib/jspm-caddy-client.js dist/jspm-caddy-client.js --format umd --global-name jspmCaddy --skip-source-maps --minify"
+    "build-dev": "jspm build lib/jspm-caddy-client.js - lodash dist/jspm-caddy-client.js --format umd --global-name jspmCaddy --global-deps \"{'lodash':'lodash'}\"",
+    "build": "jspm build lib/jspm-caddy-client.js - lodash dist/jspm-caddy-client.js --format umd --global-name jspmCaddy --global-deps \"{'lodash':'lodash'}\" --skip-source-maps --minify"
   },
   "jspm": {
     "configFile": "jspm.config.js",
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.23",
       "lodash": "^4.13.1",
-      "path-browserify": "^0.0.0"
+      "path": "^0.12.7"
     },
     "devDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "plugin-babel": "systemjs-plugin-babel@^0.0.12",
-      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha"
     },
     "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha"
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
     },
     "overrides": {
       "npm:inherits@2.0.1": {
@@ -83,7 +84,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "electron-prebuilt": "^1.2.2",
-    "jspm": "^0.17.0-beta.17",
+    "jspm": "^0.17.0-beta.19",
     "sinon": "^1.17.4"
   }
 }

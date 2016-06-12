@@ -1,7 +1,7 @@
 // js example.
-import nested from '/example/nested/index.js';
+import nested from 'example/nested/index.js';
 // css example.
-import '/example/sample.css!';
+import 'example/sample.css!';
 
 console.log('app loaded!');
 
