@@ -1,7 +1,6 @@
 import reload, {
   normalizeSync,
-  getDependencyTree,
-  getScriptName
+  getDependencyTree
 } from '/lib/reloader.js';
 
 import _ from 'lodash';
@@ -59,18 +58,18 @@ describe('reload', function(){
   it('should not call import of single file if bundled', function(done){
     System.bundles = {
       "build.js": [
-        "example/app.js",
-        "example/nested/sample.css!github:systemjs/plugin-css@0.1.22/css.js",
-        "github:systemjs/plugin-css@0.1.22.json",
-        "example/nested/example.js",
-        "example/nested/test.js"
+        `${location.origin}/example/app.js`,
+        `${location.origin}/example/nested/sample.css!github:systemjs/plugin-css@0.1.22/css.js`,
+        `${location.origin}/github:systemjs/plugin-css@0.1.22.json`,
+        `${location.origin}/example/nested/example.js`,
+        `${location.origin}/example/nested/test.js`
       ]
     };
 
     sinon.spy(System, 'import');
     assert.doesNotThrow(() => {
       reload('example/app.js').then(() => {
-        assert.isNotOk(System.import.calledWith(sinon.match(/\example\/app\.js/)));
+        assert.isNotOk(System.import.calledWith(sinon.match(/example\/app\.js/)));
         System.import.restore();
         done();
       });
