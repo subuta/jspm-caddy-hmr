@@ -4,7 +4,7 @@ import nested from 'example/nested/index.js';
 import 'example/sample.css!';
 
 const render = () => {
-  const container = document.querySelector('#app-container');
+  const container = document.querySelector('body');
   container.innerHTML = nested();
 };
 
@@ -15,4 +15,9 @@ export const _reload = () => {
 
 console.log('app loaded!');
 
-render();
+// Check if the DOMContentLoaded has already been completed
+if (document.readyState === 'complete' || document.readyState !== 'loading') {
+  render();
+} else {
+  document.addEventListener('DOMContentLoaded', render);
+}
