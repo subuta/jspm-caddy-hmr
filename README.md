@@ -31,7 +31,7 @@ gzip
 browse
 ext .html
 
-ebsocket /watch "node ./node_modules/.bin/jspm-caddy-hmr"
+websocket /watch "node ./node_modules/.bin/jspm-caddy-hmr"
 ```
 
 3 add jspm-caddy-client to your index.html(or in js)
