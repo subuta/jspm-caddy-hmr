@@ -13,6 +13,12 @@ export const _reload = () => {
   render();
 };
 
+export const _unload = () => {
+  console.log('unloaded: app');
+  const container = document.querySelector('body');
+  container.innerHTML = '';
+};
+
 console.log('app loaded!');
 
 // Check if the DOMContentLoaded has already been completed
