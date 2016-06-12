@@ -1,4 +1,11 @@
+import moreDeepNested from './moreDeepNested/index.js';
+
+export const _reload = () => {
+  console.log('reloaded: deepNested');
+};
+
+console.log('deepNested loaded.');
+
 export default () => {
-  console.log('deepNested loaded.');
- return true;
+ return moreDeepNested();
 }

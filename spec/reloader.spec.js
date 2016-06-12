@@ -1,6 +1,7 @@
 import reload, {
   normalizeSync,
-  getDependencyTree
+  getDependencyTree,
+  traceToRootModule
 } from '/lib/reloader.js';
 
 import _ from 'lodash';
@@ -104,12 +105,6 @@ describe('reload', function(){
       });
     });
   });
-
-  it('should get dependencies', function() {
-    const normalized = normalizeSync('example/app.js');
-    const module = System.loads[normalized];
-    console.log(module.deps);
-  });
 });
 
 describe('normalizeSync', function() {
@@ -195,21 +190,45 @@ describe('getDependencyTree', function() {
 
   it('should return leaf module dependency tree', function(){
     // maybe original normalizeSync is not return correct path.
-    const dependencyTree = getDependencyTree('example/nested/deepNested/index.js');
+    const url = normalizeSync('example/nested/deepNested/index.js');
+    const dependencyTree = getDependencyTree(url);
     assert.deepEqual(dependencyTree, {
       [`${location.origin}/example/nested/index.js`]: [
         `${location.origin}/example/nested/deepNested/index.js`
       ],
-      [`${location.origin}/example/nested/deepNested/index.js`]: []
+      [`${location.origin}/example/nested/deepNested/index.js`]: [
+        `${location.origin}/example/nested/deepNested/moreDeepNested/index.js`
+      ]
     });
   });
 
   it('should return root module dependency tree', function(){
     // maybe original normalizeSync is not return correct path.
-    const dependencyTree = getDependencyTree('example/app.js');
+    const url = normalizeSync('example/app.js');
+    const dependencyTree = getDependencyTree(url);
     const files = _.keys(dependencyTree);
     assert.match(files[0], `${location.origin}/example/app.js`);
     assert.match(dependencyTree[files[0]][0], `${location.origin}/example/nested/index.js`);
     assert.match(dependencyTree[files[0]][1], `${location.origin}/example/sample.css!`);
+  });
+});
+
+describe('traceToRootModule', function() {
+  beforeEach(function (done) {
+    // load app.js everytime.
+    System.import('example/app.js').then(() => {
+      done();
+    });
+  });
+
+  it('should return parent modules of dependency tree', function() {
+    // maybe original normalizeSync is not return correct path.
+    const url = normalizeSync('example/nested/deepNested/moreDeepNested/index.js');
+    const parentModules = traceToRootModule(url);
+    assert.deepEqual(parentModules, [
+      `${location.origin}/example/nested/deepNested/index.js`,
+      `${location.origin}/example/nested/index.js`,
+      `${location.origin}/example/app.js`
+    ]);
   });
 });
