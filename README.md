@@ -5,9 +5,7 @@ using this module, you will get.
 - Easy to understand (Dead simple structure)
 
 ### TODO
-[ ] - reload on add/delete file
-[ ] - reload/unload lifecycle
-[ ] - add Tests
+- reload on add/delete file
 
 ### Prerequisite
 - Caddy
