@@ -11,7 +11,6 @@ SystemJS.config({
       'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
       'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
       'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
-      'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
       'events': 'github:jspm/nodelibs-events@0.2.0-alpha',
       'assert': 'github:jspm/nodelibs-assert@0.2.0-alpha',
       'fs': 'github:jspm/nodelibs-fs@0.2.0-alpha'
@@ -63,7 +62,9 @@ SystemJS.config({
   map: {
     'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
     'css': 'github:systemjs/plugin-css@0.1.23',
-    'lodash': 'npm:lodash@4.13.1'
+    'lodash': 'npm:lodash@4.13.1',
+    'path-browserify': 'npm:path-browserify@0.0.0',
+    'process': 'github:jspm/nodelibs-process@0.2.0-alpha'
   },
   packages: {
     'github:jspm/nodelibs-buffer@0.2.0-alpha': {
