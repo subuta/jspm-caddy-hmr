@@ -4,6 +4,8 @@ using this module, you will get.
 - Easy to start (No need to launch another file watcher process)
 - Easy to use (simple structure)
 
+[README - 日本語版](README-ja.md)
+
 ### Prerequisite
 - Caddy
 - jspm@beta
