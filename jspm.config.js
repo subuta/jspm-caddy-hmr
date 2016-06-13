@@ -1,17 +1,9 @@
 SystemJS.config({
-  browserConfig: {
-    "paths": {
-      "npm:": "/jspm_packages/npm/",
-      "github:": "/jspm_packages/github/",
-      "jspm-caddy-hmr/": "/src/"
-    }
-  },
-  nodeConfig: {
-    "paths": {
-      "npm:": "jspm_packages/npm/",
-      "github:": "jspm_packages/github/",
-      "jspm-caddy-hmr/": "src/"
-    }
+  baseURL: "/",
+  paths: {
+    "npm:": "jspm_packages/npm/",
+    "github:": "jspm_packages/github/",
+    "jspm-caddy-hmr/": "src/"
   },
   devConfig: {
     "map": {
@@ -48,11 +40,9 @@ SystemJS.config({
   transpiler: "plugin-babel",
   packages: {
     "jspm-caddy-hmr": {
-      "main": "jspm-caddy-hmr.js",
+      "main": "lib/jspm-caddy-client.js",
       "meta": {
-        "*.js": {
-          "loader": "plugin-babel"
-        }
+        "**/*.js*": {}
       }
     }
   }
