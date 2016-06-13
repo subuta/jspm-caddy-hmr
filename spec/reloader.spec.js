@@ -32,7 +32,7 @@ describe('reload', function(){
   });
 
   it('should remove old dom on reload css file', function(done){
-    const path = 'example/sample.css!';
+    const path = 'example/sample.css';
     const linkTo = _.trim(path, '!');
     let styleNodes = document.querySelectorAll(`link[href*="${linkTo}"]`);
     assert(styleNodes.length > 0);

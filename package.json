@@ -1,7 +1,7 @@
 {
   "name": "jspm-caddy-hmr",
   "description": "jspm & caddy => HMR :)",
-  "version": "0.2.0",
+  "version": "0.2.4",
   "registry": "npm",
   "dependencies": {
     "lodash": "^4.13.1",
@@ -17,7 +17,7 @@
     "lib"
   ],
   "browser": "dist/jspm-caddy-client.js",
-  "main": "jspm-caddy-hmr.js",
+  "main": "dist/jspm-caddy-client.js",
   "bin": {
     "jspm-caddy-hmr": "./jspm-caddy-hmr.js"
   },
@@ -45,7 +45,7 @@
   "scripts": {
     "bundle": "jspm bundle example/app.js -wid",
     "unbundle": "jspm unbundle example/app.js",
-    "serve": "caddy",
+    "serve": "caddy & npm run bundle",
     "build-dev": "jspm build lib/jspm-caddy-client.js - lodash dist/jspm-caddy-client.js --format umd --global-name jspmCaddy --global-deps \"{'lodash':'lodash'}\"",
     "build": "jspm build lib/jspm-caddy-client.js - lodash dist/jspm-caddy-client.js --format umd --global-name jspmCaddy --global-deps \"{'lodash':'lodash'}\" --skip-source-maps --minify",
     "prepublish": "npm run build"
@@ -85,7 +85,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "electron-prebuilt": "^1.2.2",
-    "jspm": "^0.17.0-beta.19",
+    "jspm": "^0.17.0-beta.21",
     "sinon": "^1.17.4"
   }
 }
