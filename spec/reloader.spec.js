@@ -167,6 +167,10 @@ describe('normalizeSync', function() {
     assert.deepEqual(normalizeSync('./deepNested/index.js', `nested/index.js`), `${location.origin}/nested/deepNested/index.js`);
   });
 
+  it('should arrow relative path and absolute path as basePath.', function(){
+    assert.deepEqual(normalizeSync('example/nested/deepNested/moreDeepNested/index.js', `${location.origin}/example/nested/deepNested/index.js`), `${location.origin}/example/nested/deepNested/moreDeepNested/index.js`);
+  });
+
   it('should allow url as a basePath if passed.', function(){
     assert.deepEqual(normalizeSync('./deepNested/index.js', `${location.origin}/nested`), `${location.origin}/nested/deepNested/index.js`);
   });
