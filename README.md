@@ -76,6 +76,12 @@ npm install jspm@beta -g
 brew install caddy
 NODE_ENV=development npm i
 jspm i
+
+#call jspm link from another project may be useful for debugging purpose.
+jspm link ~/repo_personal/jspm-caddy-hmr
+
+#to unlink(install from remote npm registry) call this command
+jspm install --unlink npm:jspm-caddy-hmr
 ```
 
 ### run example

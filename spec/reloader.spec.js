@@ -226,9 +226,9 @@ describe('traceToRootModule', function() {
     const url = normalizeSync('example/nested/deepNested/moreDeepNested/index.js');
     const parentModules = traceToRootModule(url);
     assert.deepEqual(parentModules, [
-      `${location.origin}/example/nested/deepNested/index.js`,
+      `${location.origin}/example/app.js`,
       `${location.origin}/example/nested/index.js`,
-      `${location.origin}/example/app.js`
+      `${location.origin}/example/nested/deepNested/index.js`
     ]);
   });
 });

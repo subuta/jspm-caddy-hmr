@@ -74,6 +74,12 @@ npm install jspm@beta -g
 brew install caddy
 NODE_ENV=development npm i
 jspm i
+
+#デバッグ時はjspm linkコマンドを他のプロジェクトから呼ぶと便利です。
+jspm link ~/repo_personal/jspm-caddy-hmr
+
+#jspm linkの解除は、以下のコマンドを呼び出します。(以降remoteからdownloadされるようになる。
+jspm install --unlink npm:jspm-caddy-hmr
 ```
 
 ### Exampleの起動
