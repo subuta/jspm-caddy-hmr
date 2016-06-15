@@ -9,8 +9,7 @@ SystemJS.config({
     "map": {
       "plugin-babel": "npm:systemjs-plugin-babel@0.0.12",
       "events": "github:jspm/nodelibs-events@0.2.0-alpha",
-      "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
-      "fs": "github:jspm/nodelibs-fs@0.2.0-alpha"
+      "stream": "github:jspm/nodelibs-stream@0.2.0-alpha"
     },
     "packages": {
       "github:jspm/nodelibs-stream@0.2.0-alpha": {
@@ -59,7 +58,8 @@ SystemJS.config({
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "css": "github:systemjs/plugin-css@0.1.23",
-    "lodash": "npm:lodash@4.13.1",
+    "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
+    "lodash-es": "npm:lodash-es@4.13.1",
     "path": "npm:path@0.12.7",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
@@ -68,7 +68,7 @@ SystemJS.config({
   packages: {
     "npm:path@0.12.7": {
       "map": {
-        "process": "npm:process@0.11.4",
+        "process": "npm:process@0.11.5",
         "util": "npm:util@0.10.3"
       }
     },
