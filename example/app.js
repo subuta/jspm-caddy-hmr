@@ -3,6 +3,8 @@ import nested from 'example/nested/index.js';
 // css example.
 import 'example/sample.css!';
 
+import { even } from 'example/circular/even.js';
+
 const render = () => {
   const container = document.querySelector('body');
   container.innerHTML = nested();

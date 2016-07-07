@@ -12,7 +12,7 @@ function list(val) {
 const watchDelay = 100;
 
 program
-  .version('0.2.2')
+  .version('0.2.10')
   .usage('[options] <target>')
   .option('-e, --exclude <folders>', 'A list of folders to exclude from watch', list)
   .option('-i, --include <patterns>', 'A list of file-patterns to watch', list)

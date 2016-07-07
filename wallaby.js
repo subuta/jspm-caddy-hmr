@@ -1,5 +1,6 @@
 module.exports = function (wallaby) {
   return {
+    maxConsoleMessagesPerTest: 1000,
     files: [
       // system.js and configuration
       {pattern: 'jspm_packages/system.src.js', instrument: false},

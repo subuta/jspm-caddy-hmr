@@ -59,7 +59,7 @@ SystemJS.config({
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "css": "github:systemjs/plugin-css@0.1.23",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
-    "lodash-es": "npm:lodash-es@4.13.1",
+    "lodash": "npm:lodash@4.13.1",
     "path": "npm:path@0.12.7",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",

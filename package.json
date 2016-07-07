@@ -1,7 +1,7 @@
 {
   "name": "jspm-caddy-hmr",
   "description": "jspm & caddy => HMR :)",
-  "version": "0.2.8",
+  "version": "0.2.10",
   "registry": "npm",
   "dependencies": {
     "lodash": "^4.13.1",
@@ -26,11 +26,11 @@
   "homepage": "https://github.com/subuta/jspm-caddy-hmr",
   "author": "subuta <shunta.3110@gmail.com> (https://github.com/subuta)",
   "bugs": {
-    "url": "https://github.com/subuta/jspm-watch/issues"
+    "url": "https://github.com/subuta/jspm-caddy-hmr/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/subuta/jspm-watch.git"
+    "url": "https://github.com/subuta/jspm-caddy-hmr.git"
   },
   "keywords": [
     "fs",
@@ -54,7 +54,7 @@
     "configFile": "jspm.config.js",
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.23",
-      "lodash-es": "^4.13.1",
+      "lodash": "^4.13.1",
       "path": "^0.12.7"
     },
     "devDependencies": {
@@ -76,16 +76,22 @@
         "ignore": [
           "test.js"
         ]
+      },
+      "npm:lodash@4.13.1": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
       }
     }
   },
   "devDependencies": {
-    "babel-core": "^6.9.1",
+    "babel-core": "^6.10.4",
     "babel-preset-es2015": "^6.9.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "electron-prebuilt": "^1.2.2",
-    "jspm": "^0.17.0-beta.21",
+    "jspm": "^0.17.0-beta.22",
     "sinon": "^1.17.4"
   }
 }
