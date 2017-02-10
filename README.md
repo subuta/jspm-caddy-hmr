@@ -4,6 +4,9 @@ using this module, you will get.
 - Easy to start (No need to launch another file watcher process)
 - Easy to use (simple structure)
 
+CAUTION! jspm-caddy-hmr is only tested with jspm@0.17.0-beta.22, other version of jspm may not work ...
+CAUTION! this repository is not actively maintained. I'm waiting for major release of jspm ... 
+
 [README - 日本語版](README-ja.md)
 
 ### Prerequisite

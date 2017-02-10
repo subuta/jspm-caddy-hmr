@@ -57,15 +57,17 @@ describe('reload', function(){
   });
 
   it('should not call import of single file if bundled', function(done){
-    System.bundles = {
-      "build.js": [
-        `${location.origin}/example/app.js`,
-        `${location.origin}/example/nested/sample.css!github:systemjs/plugin-css@0.1.22/css.js`,
-        `${location.origin}/github:systemjs/plugin-css@0.1.22.json`,
-        `${location.origin}/example/nested/example.js`,
-        `${location.origin}/example/nested/test.js`
-      ]
-    };
+    System.config({
+      bundles: {
+        "build.js": [
+          `${location.origin}/example/app.js`,
+          `${location.origin}/example/nested/sample.css!github:systemjs/plugin-css@0.1.22/css.js`,
+          `${location.origin}/github:systemjs/plugin-css@0.1.22.json`,
+          `${location.origin}/example/nested/example.js`,
+          `${location.origin}/example/nested/test.js`
+        ]
+      }
+    });
 
     sinon.spy(System, 'import');
     assert.doesNotThrow(() => {
@@ -117,7 +119,8 @@ describe('normalizeSync', function() {
 
   it('should return same result with System.normalize', function(done){
     // maybe original normalizeSync is not return correct path.
-    assert(System.normalizeSync('example/sample.css!') !== normalizeSync('example/sample.css!'));
+    //console.log(System.normalizeSync('example/sample.css!'));
+    assert.strictEqual(System.normalizeSync('example/sample.css!'), normalizeSync('example/sample.css!'));
 
     System.normalize('example/sample.css!').then(normalized => {
       // so we need to use original one.

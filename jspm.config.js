@@ -8,15 +8,10 @@ SystemJS.config({
   devConfig: {
     "map": {
       "plugin-babel": "npm:systemjs-plugin-babel@0.0.12",
-      "events": "github:jspm/nodelibs-events@0.2.0-alpha",
-      "stream": "github:jspm/nodelibs-stream@0.2.0-alpha"
+      "events": "npm:jspm-nodelibs-events@0.2.0",
+      "stream": "npm:jspm-nodelibs-stream@0.2.0"
     },
     "packages": {
-      "github:jspm/nodelibs-stream@0.2.0-alpha": {
-        "map": {
-          "stream-browserify": "npm:stream-browserify@2.0.1"
-        }
-      },
       "npm:stream-browserify@2.0.1": {
         "map": {
           "inherits": "npm:inherits@2.0.1",
@@ -32,6 +27,11 @@ SystemJS.config({
           "core-util-is": "npm:core-util-is@1.0.2",
           "util-deprecate": "npm:util-deprecate@1.0.2",
           "process-nextick-args": "npm:process-nextick-args@1.0.7"
+        }
+      },
+      "npm:jspm-nodelibs-stream@0.2.0": {
+        "map": {
+          "stream-browserify": "npm:stream-browserify@2.0.1"
         }
       }
     }
@@ -54,27 +54,22 @@ SystemJS.config({
     "github:*/*.json"
   ],
   map: {
-    "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
-    "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
+    "assert": "npm:jspm-nodelibs-assert@0.2.0",
+    "buffer": "npm:jspm-nodelibs-buffer@0.2.0",
+    "child_process": "npm:jspm-nodelibs-child_process@0.2.0",
     "css": "github:systemjs/plugin-css@0.1.23",
-    "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
+    "fs": "npm:jspm-nodelibs-fs@0.2.0",
     "lodash": "npm:lodash@4.13.1",
     "path": "npm:path@0.12.7",
-    "process": "github:jspm/nodelibs-process@0.2.0-alpha",
-    "util": "github:jspm/nodelibs-util@0.2.0-alpha",
-    "vm": "github:jspm/nodelibs-vm@0.2.0-alpha"
+    "process": "npm:jspm-nodelibs-process@0.2.0",
+    "util": "npm:jspm-nodelibs-util@0.2.0",
+    "vm": "npm:jspm-nodelibs-vm@0.2.0"
   },
   packages: {
     "npm:path@0.12.7": {
       "map": {
         "process": "npm:process@0.11.5",
         "util": "npm:util@0.10.3"
-      }
-    },
-    "github:jspm/nodelibs-buffer@0.2.0-alpha": {
-      "map": {
-        "buffer-browserify": "npm:buffer@4.6.0"
       }
     },
     "npm:util@0.10.3": {
@@ -87,6 +82,11 @@ SystemJS.config({
         "isarray": "npm:isarray@1.0.0",
         "base64-js": "npm:base64-js@1.1.2",
         "ieee754": "npm:ieee754@1.1.6"
+      }
+    },
+    "npm:jspm-nodelibs-buffer@0.2.0": {
+      "map": {
+        "buffer-browserify": "npm:buffer@4.6.0"
       }
     }
   }

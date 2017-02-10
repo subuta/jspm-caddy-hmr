@@ -58,18 +58,18 @@
       "path": "^0.12.7"
     },
     "devDependencies": {
-      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "events": "jspm-nodelibs-events@^0.2.0",
       "plugin-babel": "systemjs-plugin-babel@^0.0.12",
-      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha"
+      "stream": "jspm-nodelibs-stream@^0.2.0"
     },
     "peerDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
-      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
-      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
-      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
+      "assert": "jspm-nodelibs-assert@^0.2.0",
+      "buffer": "jspm-nodelibs-buffer@^0.2.0",
+      "child_process": "jspm-nodelibs-child_process@^0.2.0",
+      "fs": "jspm-nodelibs-fs@^0.2.0",
+      "process": "jspm-nodelibs-process@^0.2.0",
+      "util": "jspm-nodelibs-util@^0.2.0",
+      "vm": "jspm-nodelibs-vm@^0.2.0"
     },
     "overrides": {
       "npm:inherits@2.0.1": {

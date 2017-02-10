@@ -50,11 +50,11 @@ module.exports = function (wallaby) {
       wallaby.delayStart();
 
       System.config({
-        transpiler: 'none'
+        transpiler: 'none',
+        packages: {}
       });
 
       System.trace = true;
-      System.packages = {};
 
       var promises = [];
       for (var i = 0, len = wallaby.tests.length; i < len; i++) {
